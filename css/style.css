@@ -60,8 +60,7 @@ body {
     /* Título bem grande */
     font-weight: 700;
     text-transform: uppercase;
-    margin-bottom: 1rem;
-    margin: 0 20px;
+    margin: 80px 20px 1rem 20px;  /* arriba | laterales | abajo */
     color: white;
     text-shadow: 2px 2px 10px rgba(0, 0, 0, 0.8);
 }
@@ -212,6 +211,108 @@ body {
     padding: 4px 8px;
 }
 
+.horario-container {
+    margin-top: 25px;
+    text-align: center;
+}
+
+.horario-container h4 {
+    color: #ed1c24;
+    margin-bottom: 15px;
+    font-size: 1.2rem;
+    text-transform: uppercase;
+}
+
+.horario-img {
+    max-width: 500px;
+    width: 100%;
+    margin: 0 auto;
+    border-radius: 8px;
+    border: 2px solid transparent;
+    cursor: pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.4s ease, border-color 0.4s ease;
+}
+
+.horario-img:hover {
+    transform: scale(1.03);
+    border-color: #ed1c24;
+}
+
+/* =========================================
+   GALERIA PRINCIPAL
+   ========================================= */
+#galeria-grid {
+    padding: 80px 20px 60px;
+    background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+}
+
+#galeria-grid h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    color: #ed1c24;
+    margin-bottom: 10px;
+}
+
+.intro-galeria {
+    text-align: center;
+    color: #ccc;
+    max-width: 700px;
+    margin: 0 auto 40px;
+    line-height: 1.6;
+}
+
+.galeria-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.galeria-item {
+    background-color: #161616;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.galeria-item:hover {
+    transform: translateY(-4px);
+    border-color: #ed1c24;
+}
+
+.galeria-img {
+    display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    cursor: pointer;
+    transition: transform 0.4s ease;
+}
+
+.galeria-item:hover .galeria-img {
+    transform: scale(1.04);
+}
+
+.galeria-caption {
+    padding: 16px 18px 20px;
+}
+
+.galeria-caption h3 {
+    color: #fff;
+    font-size: 1.1rem;
+    margin-bottom: 8px;
+}
+
+.galeria-caption p {
+    color: #bdbdbd;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
 /* =========================================
    ESTILOS DEL VISOR CENTRADO (LIGHTBOX)
    ========================================= */
@@ -221,60 +322,286 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.9);
-    /* Fondo muy oscuro */
+    background-color: rgba(0, 0, 0, 0.92);
     z-index: 9999;
-    /* Por encima de todo */
     display: flex;
     justify-content: center;
     align-items: center;
-
-    /* Animación de entrada */
     opacity: 0;
     pointer-events: none;
     transition: opacity 0.4s ease;
 }
 
-/* Clase que se activa con JS para mostrarlo */
 #visor-imagenes.activo {
     opacity: 1;
     pointer-events: auto;
 }
 
-#visor-imagenes img {
-    max-width: 90%;
-    max-height: 90vh;
-    border-radius: 8px;
-    box-shadow: 0 0 30px rgba(237, 28, 36, 0.4);
-    /* Brillo rojo alrededor de la foto */
+#contenedor-contenido-ampliado {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: min(92vw, 1100px);
+    height: min(88vh, 800px);
+}
 
-    /* Efecto de zoom al abrir */
-    transform: scale(0.8);
+#visor-imagenes .contenido-zoom-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    border-radius: 12px;
+    box-shadow: 0 0 30px rgba(237, 28, 36, 0.35);
+    transform: scale(0.9);
     transition: transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
 }
 
-#visor-imagenes.activo img {
+#visor-imagenes.activo .contenido-zoom-img {
     transform: scale(1);
 }
 
-.cerrar-visor {
+.cerrar-visor,
+.nav-visor {
     position: absolute;
-    top: 20px;
-    right: 40px;
+    border: none;
     color: #fff;
-    font-size: 50px;
-    font-weight: bold;
+    background: rgba(0, 0, 0, 0.75);
     cursor: pointer;
-    transition: color 0.3s ease;
+    transition: background 0.3s ease, color 0.3s ease;
+    z-index: 10;
 }
 
-.cerrar-visor:hover {
+.cerrar-visor {
+    top: 20px;
+    right: 24px;
+    font-size: 40px;
+    font-weight: bold;
+    width: 46px;
+    height: 46px;
+    border-radius: 50%;
+    line-height: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.nav-visor {
+    top: 50%;
+    transform: translateY(-50%);
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    font-size: 24px;
+}
+
+.nav-visor-prev {
+    left: 24px;
+}
+
+.nav-visor-next {
+    right: 24px;
+}
+
+.cerrar-visor:hover,
+.nav-visor:hover {
+    background: #ed1c24;
+    color: #fff;
+}
+
+/* =========================================
+   DEPOIMENTOS
+   ========================================= */
+.depoimentos-section {
+    padding: 80px 20px 60px;
+    background: linear-gradient(180deg, #0f0f0f 0%, #1a1a1a 100%);
+}
+
+.depoimentos-intro {
+    max-width: 760px;
+    margin: 0 auto 40px;
+    text-align: center;
+}
+
+.depoimentos-intro h2 {
+    font-size: 2.5rem;
     color: #ed1c24;
+    margin-bottom: 10px;
+}
+
+.depoimentos-intro p {
+    color: #ccc;
+    line-height: 1.7;
+}
+
+.depoimentos-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 24px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.depoimento-card {
+    background-color: #161616;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+.depoimento-foto {
+    display: block;
+    width: 100%;
+    height: 260px;
+    object-fit: cover;
+}
+
+.depoimento-content {
+    padding: 20px;
+}
+
+.depoimento-content h3 {
+    color: #fff;
+    margin-bottom: 10px;
+    font-size: 1.1rem;
+}
+
+.depoimento-text {
+    color: #bdbdbd;
+    line-height: 1.7;
+    font-size: 0.95rem;
+}
+
+.instagram-publicacoes {
+    max-width: 1200px;
+    margin: 44px auto 0;
+    padding: 28px;
+    border-radius: 16px;
+    background: rgba(255, 255, 255, 0.04);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.instagram-publicacoes-intro {
+    text-align: center;
+    margin-bottom: 22px;
+}
+
+.instagram-publicacoes-intro h3 {
+    color: #fff;
+    font-size: 1.35rem;
+    margin-bottom: 8px;
+}
+
+.instagram-publicacoes-intro p {
+    color: #bdbdbd;
+    line-height: 1.6;
+}
+
+.instagram-posts-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+.instagram-post-card {
+    display: block;
+    overflow: hidden;
+    border-radius: 12px;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.instagram-post-card:hover {
+    transform: translateY(-3px);
+    border-color: #ed1c24;
+}
+
+.instagram-post-card .instagram-media {
+    width: 100% !important;
+    min-width: 0 !important;
+    max-width: none !important;
+    margin: 0 !important;
+    background: #fff;
+}
+
+.instagram-post-card img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
 }
 
 /* RESPONSIVIDADE */
-@media (max-width: 480px) {
+@media (max-width: 900px) {
+    .instagram-posts-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
 
+@media (max-width: 768px) {
+    .galeria-container {
+        gap: 16px;
+    }
+
+    .depoimentos-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .instagram-publicacoes {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .galeria-aulas {
+        grid-template-columns: 1fr;
+    }
+
+    .depoimentos-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .instagram-posts-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .nav-visor {
+        width: 42px;
+        height: 42px;
+        font-size: 18px;
+    }
+
+    .nav-visor-prev {
+        left: 10px;
+    }
+
+    .nav-visor-next {
+        right: 10px;
+    }
+}
+
+/* RESPONSIVIDADE */
+@media (max-width: 768px) {
+    .container-hover {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .card-hover {
+        min-width: 0;
+        width: 100%;
+    }
+
+    .card-hover .face-hover.face1 {
+        transform: translateY(0);
+        min-height: 180px;
+    }
+
+    .card-hover:hover .face-hover.face1 {
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 480px) {
     .galeria-aulas {
         grid-template-columns: 1fr;
     }
@@ -622,8 +949,7 @@ main {
 }
 
 
-@media (max-width: 678   
-ZS\ XDOUUU6O[UOOPUOUYTPPOUOUOPYUYPUOUOUOUUpx) {
+@media (max-width: 768px) {
 
     .treino-titulo {
 
@@ -670,5 +996,13 @@ ZS\ XDOUUU6O[UOOPUOUYTPPOUOUOPYUYPUOUOUOUUpx) {
         width: 100%;
         margin-left: 30px;
     }
+
+    #historia,
+#profesores,
+#jiujitsu,
+#jiujitsu-kids,
+#muay-thai {
+    scroll-margin-top: 100px;
+}
 
 }
