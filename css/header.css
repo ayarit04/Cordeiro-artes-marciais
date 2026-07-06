@@ -144,7 +144,7 @@ font-size: 20px;
     cursor: pointer;
 }
 
-@media (max-width: 550px) {
+@media (max-width: 768px) {
      .menu-open {
         display: block;
         font-size: 2rem;

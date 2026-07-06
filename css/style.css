@@ -36,7 +36,7 @@ body {
     /* Define a imagem de fundo diretamente no container */
     background-image: linear-gradient(rgba(0, 0, 0, var(--opacidad-negro)),
             rgba(0, 0, 0, var(--opacidad-negro))),
-        url("./imag/header-foto.jpeg");
+        url("../css/imag/header-foto2.jpeg");
     /* Caminho da sua imagem */
 
     background-size: cover;
@@ -50,8 +50,8 @@ body {
     position: relative;
     z-index: 2;
     /* Fica acima do gradiente */
-    padding: 20px;
-    margin-top: 150px;
+    padding: 10px;
+    margin-top: 40px;
     /* Ajuste manual para descer os textos do topo da janela */
 }
 
@@ -70,7 +70,7 @@ body {
 .hero p {
     font-size: 1.25rem;
     margin-bottom: 2rem;
-    margin-top: 30px;
+    margin-top: 10px;
 }
 
 /* Estilo do botão (Mantém o seu original) */
@@ -110,6 +110,11 @@ body {
     font-size: 2.5rem;
     margin-bottom: 0px;
     color: #ed1c24;
+}
+
+.treino-titulo {
+    margin-bottom: 50px;
+    margin-top: 100px;
 }
 
 .aula-contenedor {
@@ -269,6 +274,7 @@ body {
 
 /* RESPONSIVIDADE */
 @media (max-width: 480px) {
+
     .galeria-aulas {
         grid-template-columns: 1fr;
     }
@@ -615,7 +621,22 @@ main {
     margin: 0;
 }
 
-@media (max-width: 550px) {
+
+@media (max-width: 678   
+ZS\ XDOUUU6O[UOOPUOUYTPPOUOUOPYUYPUOUOUOUUpx) {
+
+    .treino-titulo {
+
+        margin-top: 50px;
+    }
+
+    .hero-content {
+        margin-top: 20px;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+    }
 
     .box-missao,
     .box-visao,
@@ -626,27 +647,28 @@ main {
         justify-content: center;
         height: 150px;
     }
-}
 
-.depoimentos {
-    margin-top: 100px;
-}
+    .depoimentos {
+        margin-top: 100px;
+    }
 
-.depoimentos h2 {
-    text-align: center;
-    margin-bottom: 40px;
-    font-size: 2rem;
-    color: #ed1c24;
-    margin: 0 0 10px 0;
-}
+    .depoimentos h2 {
+        text-align: center;
+        margin-bottom: 40px;
+        font-size: 2rem;
+        color: #ed1c24;
+        margin: 0 0 10px 0;
+    }
 
-.depoimentos h2:hover {
-    color: #FFF;
-    cursor: pointer;
-}
+    .depoimentos h2:hover {
+        color: #FFF;
+        cursor: pointer;
+    }
 
-.instagram-media{
-    max-width: 540px;
-    width: 100%;
-    margin-left: 30px;
+    .instagram-media {
+        max-width: 540px;
+        width: 100%;
+        margin-left: 30px;
+    }
+
 }
